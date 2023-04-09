@@ -6,6 +6,7 @@ export default function index() {
   const [date, setDate] = useState(null);
   const [index, setIndex] = useState(8);
   const [img, setImg] = useState("1.svg");
+  const [imgmob, setImgmob] = useState("1_mob.svg");
 
   const arr = [
     "1.svg",
@@ -20,6 +21,21 @@ export default function index() {
     "10.svg",
     "11.svg",
     "12.svg",
+  ];
+
+  const arrmob = [
+    "1_mob.svg",
+    "2_mob.svg",
+    "3_mob.svg",
+    "4_mob.svg",
+    "5_mob.svg",
+    "6_mob.svg",
+    "7_mob.svg",
+    "8_mob.svg",
+    "9_mob.svg",
+    "10_mob.svg",
+    "11_mob.svg",
+    "12_mob.svg",
   ];
 
   async function getFormattedDate() {
@@ -46,7 +62,7 @@ export default function index() {
       fontFamily={"Space Grotesk, sans-serif"}
       cursor={"default"}
       userSelect={"none"}
-      backgroundImage={img}
+      backgroundImage={[imgmob, img]}
       objectFit={"fill"}
     >
       <motion.div
@@ -54,7 +70,7 @@ export default function index() {
         animate={{ opacity: "100%" }}
         transition={{ delay: "0.15" }}
       >
-        <Flex flexDir={"column"}>
+        <Flex display={["none", "none", "flex"]} flexDir={"column"}>
           <Flex
             align={"center"}
             onClick={() => {
@@ -77,6 +93,33 @@ export default function index() {
             {date}
           </Text>
           <Text fontSize={"40px"} fontWeight={"medium"}>
+            gm, happy hacking!
+          </Text>
+        </Flex>
+
+        <Flex display={["flex", "none"]} flexDir={"column"}>
+          <Flex
+            align={"center"}
+            onClick={() => {
+              const randnum = Math.floor(Math.random() * 13);
+              setIndex(randnum);
+              setImgmob(arrmob[index]);
+            }}
+            cursor={"pointer"}
+          >
+            <Text
+              bg={"black"}
+              fontSize={"16px"}
+              fontWeight={"medium"}
+              p={"15px"}
+            >
+              🌾Yieldbay
+            </Text>
+          </Flex>
+          <Text fontSize={"50px"} fontWeight={"bold"}>
+            {date}
+          </Text>
+          <Text fontSize={"26px"} fontWeight={"medium"}>
             gm, happy hacking!
           </Text>
         </Flex>
