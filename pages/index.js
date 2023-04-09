@@ -2,37 +2,24 @@ import { Flex, Text } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-import one from "../public/1.svg";
-import two from "../public/2.svg";
-import three from "../public/3.svg";
-import four from "../public/4.svg";
-import five from "../public/5.svg";
-import six from "../public/6.svg";
-import seven from "../public/7.svg";
-import eight from "../public/8.svg";
-import nine from "../public/9.svg";
-import ten from "../public/10.svg";
-import eleven from "../public/11.svg";
-import twelve from "../public/12.svg";
-
 export default function index() {
   const [date, setDate] = useState(null);
-  const [index, setIndex] = useState(0);
-  const [img, setImg] = useState(one);
+  const [index, setIndex] = useState(8);
+  const [img, setImg] = useState("1.svg");
 
   const arr = [
-    one,
-    two,
-    three,
-    four,
-    five,
-    six,
-    seven,
-    eight,
-    nine,
-    ten,
-    eleven,
-    twelve,
+    "1.svg",
+    "2.svg",
+    "3.svg",
+    "4.svg",
+    "5.svg",
+    "6.svg",
+    "7.svg",
+    "8.svg",
+    "9.svg",
+    "10.svg",
+    "11.svg",
+    "12.svg",
   ];
 
   async function getFormattedDate() {
@@ -49,18 +36,6 @@ export default function index() {
     main();
   }, [date]);
 
-  useEffect(() => {
-    async function change() {
-      const randnum = Math.floor(Math.random() * 13);
-      setIndex(randnum);
-      setImg(arr[index]);
-    }
-
-    const intervalId = setInterval(change, 10000);
-
-    return () => clearInterval(intervalId);
-  }, [arr]);
-
   return (
     <Flex
       h={"100vh"}
@@ -71,7 +46,8 @@ export default function index() {
       fontFamily={"Space Grotesk, sans-serif"}
       cursor={"default"}
       userSelect={"none"}
-      style={{ backgroundImage: `url(${img.src})`, objectFit: "fill" }}
+      backgroundImage={img}
+      objectFit={"fill"}
     >
       <motion.div
         initial={{ opacity: "0" }}
@@ -79,7 +55,15 @@ export default function index() {
         transition={{ delay: "0.15" }}
       >
         <Flex flexDir={"column"}>
-          <Flex align={"center"}>
+          <Flex
+            align={"center"}
+            onClick={() => {
+              const randnum = Math.floor(Math.random() * 13);
+              setIndex(randnum);
+              setImg(arr[index]);
+            }}
+            cursor={"pointer"}
+          >
             <Text
               bg={"black"}
               fontSize={"30px"}
