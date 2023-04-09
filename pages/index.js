@@ -1,5 +1,6 @@
 import { Flex, Text } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 import one from "../public/1.svg";
 import two from "../public/2.svg";
@@ -72,19 +73,30 @@ export default function index() {
       userSelect={"none"}
       style={{ backgroundImage: `url(${img.src})`, objectFit: "fill" }}
     >
-      <Flex flexDir={"column"}>
-        <Flex align={"center"}>
-          <Text bg={"black"} fontSize={"30px"} fontWeight={"medium"} p={"15px"}>
-            🌾Yieldbay
+      <motion.div
+        initial={{ opacity: "0" }}
+        animate={{ opacity: "100%" }}
+        transition={{ delay: "0.15" }}
+      >
+        <Flex flexDir={"column"}>
+          <Flex align={"center"}>
+            <Text
+              bg={"black"}
+              fontSize={"30px"}
+              fontWeight={"medium"}
+              p={"15px"}
+            >
+              🌾Yieldbay
+            </Text>
+          </Flex>
+          <Text fontSize={"80px"} fontWeight={"bold"}>
+            {date}
+          </Text>
+          <Text fontSize={"40px"} fontWeight={"medium"}>
+            gm, happy hacking!
           </Text>
         </Flex>
-        <Text fontSize={"80px"} fontWeight={"bold"}>
-          {date}
-        </Text>
-        <Text fontSize={"40px"} fontWeight={"medium"}>
-          gm, happy hacking!
-        </Text>
-      </Flex>
+      </motion.div>
     </Flex>
   );
 }
