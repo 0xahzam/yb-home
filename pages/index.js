@@ -1,26 +1,37 @@
 import { Flex, Text } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+import one from "../public/1.svg";
+import two from "../public/2.svg";
+import three from "../public/3.svg";
+import four from "../public/4.svg";
+import five from "../public/5.svg";
+import six from "../public/6.svg";
+import seven from "../public/7.svg";
+import eight from "../public/8.svg";
+import nine from "../public/9.svg";
+import ten from "../public/10.svg";
+import eleven from "../public/11.svg";
+import twelve from "../public/12.svg";
 
 export default function index() {
   const [date, setDate] = useState(null);
   const [index, setIndex] = useState(0);
-  const [img, setImg] = useState("1.svg");
+  const [img, setImg] = useState(one);
 
   const arr = [
-    "1.svg",
-    "2.svg",
-    "3.svg",
-    "4.svg",
-    "5.svg",
-    "6.svg",
-    "7.svg",
-    "8.svg",
-    "9.svg",
-    "10.svg",
-    "11.svg",
-    "12.svg",
+    one,
+    two,
+    three,
+    four,
+    five,
+    six,
+    seven,
+    eight,
+    nine,
+    ten,
+    eleven,
+    twelve,
   ];
 
   async function getFormattedDate() {
@@ -57,10 +68,9 @@ export default function index() {
       bg={"black"}
       color={"white"}
       fontFamily={"Space Grotesk, sans-serif"}
-      backgroundImage={img}
-      objectFit={"fill"}
       cursor={"default"}
       userSelect={"none"}
+      style={{ backgroundImage: `url(${img.src})`, objectFit: "fill" }}
     >
       <Flex flexDir={"column"}>
         <Flex align={"center"}>
